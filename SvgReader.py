@@ -70,7 +70,9 @@ class SvgReader:
         elif type.find('outline') > -1:
             return 'outline'
         elif type.find('sharp') > -1:
-            return type
+            return 'sharp'
+        elif type.find('multicolor') > -1:
+            return 'multicolor'
 
     def __get_icon_name(self, icon_path:str): 
         start = icon_path.rfind(os.sep) + 1

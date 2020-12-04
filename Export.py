@@ -1,6 +1,7 @@
 import os
 import shutil
 import json
+from pathlib import Path
 class Export:
     __target_dir = "dist"
     __project_name = ''
@@ -10,7 +11,9 @@ class Export:
         """
         self.__project_name = project_name
         self.__target_dir = os.path.join(self.__target_dir, project_name)
-        shutil.rmtree(self.__target_dir)
+        dir = Path(self.__target_dir)
+        if dir.exists():
+            shutil.rmtree(self.__target_dir)
         os.makedirs(self.__target_dir)
 
     def __clear_export_dir(self):
